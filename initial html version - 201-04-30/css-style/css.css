@@ -1,0 +1,53 @@
+body{
+	background:#eaecea;
+	color:#060606; 
+--}
+#page{
+	background:#fff; 
+	padding: 10px;
+	margin: 100px auto;
+	width: 50%;
+	height: 300px;
+	box-shadow: 0 0 10px #000;
+	color:#060000;
+
+}
+#title_bar table{
+	font-family: tahoma;
+	font-size: 14px;
+	width: 100%;
+}
+#title_bar table td{
+	padding: 5px;
+}
+#title_bar table a{
+	background: #39f4eb;
+	padding: 5px;
+	text-decoration: none;
+	color: #333;
+	display: block;
+}
+#title_bar table a:hover{
+	background: #fff;
+}
+#container{
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 6px;
+	color: #333;
+}
+#main{
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 6px;
+	color: #333;
+	height: 200px;
+}
+
+ul{
+	list-style-type: none;
+}
+ul li.content{
+	color:grey;
+}	
+
