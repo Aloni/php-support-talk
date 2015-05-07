@@ -7,7 +7,7 @@ body{
 	padding: 10px;
 	margin: 100px auto;
 	width: 50%;
-	height: 300px;
+	min-height: 400px;
 	box-shadow: 0 0 10px #000;
 	color:#060000;
 
@@ -50,4 +50,8 @@ ul{
 ul li.content{
 	color:grey;
 }	
+
+table{
+	width: 100%;
+}
 
