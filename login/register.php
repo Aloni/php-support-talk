@@ -5,15 +5,15 @@
 if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['phone'])&&isset($_POST['password'])){    
 	$name=$_POST['name'];
 	$email=$_POST['email'];
-	$phone=$_POST['phone_num'];
+	$phone=$_POST['phone'];
     $password = $_POST['password'];
 
     $success= registerInDB($name, $email, $password, $phone);
     if($success){
-        header("location: login/login.php");
+        header("location: login.php");
     }
     else{
-        echo "Invalid email"
+        echo "Invalid email";
     }
 }
 ?>

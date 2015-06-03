@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users(
 	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	name VARCHAR(30) NOT NULL,
 	email VARCHAR(50),
-	phone_num VARCHAR(15),
+	phone VARCHAR(15),
 	image_path VARCHAR(60),
 	password VARCHAR(15),
 	userType VARCHAR(15) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS messages(
 
 	
 	
-INSERT INTO users(id, name, email, phone_num, image_path, password, userType) 
+INSERT INTO users(id, name, email, phone, image_path, password, userType) 
 VALUES
 	(1, 'Daniel Cohen', 'cohen@gmail.com','054-4545454','','1234', 'worker'), 
 	(2, 'Jonathan Levi', 'levi@gmail.com','054-4545454','','1234', 'customer');

@@ -178,11 +178,10 @@ function registerInDB($name, $email, $password, $phone){
 
 	$email= strtolower($email);
 
-        
+$dbh = getDbConnection();        
     $password = password_hash($password, PASSWORD_DEFAULT);
     $userType = 'customer';
-
-	$stmt = $dbh->query("insert into users (name, email,phone_num , password , userType) values ('$name','$email','$phone','$password','$userType')");
+$stmt = $dbh->query("insert into users (name, email,phone , password , userType) values ('$name','$email','$phone','$password','$userType')");
     if(!empty($stmt)){
         return TRUE;} 
         else {
