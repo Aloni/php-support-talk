@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+		<title>Customer Management System</title>
+		<meta name="" charset="UTF-8">
+		<link rel="stylesheet" href="css/basic.css" />
+		<script language="javascript" type="javascript" src="script/basic.js"></script>
+</head>
+<body>
+	<div id ="page">
+		<header>
+				<!--<ul>
+					<li> <a href="#">Home</a> </li>
+					<li> Open Tasks</li>
+					<li> <a href="#" > Customers</a></li>
+				</ul> -->
+				<div id="title_bar">
+				<span>Zipi U.</span>
+				<table>
+					<tr>
+						<td width ="33%" align="center"><a href="customeractivetasks.html" target="blank" >In Process</a></td>
+						<td width ="33%" align="center"> <a href="customeralltasks.html" target="blank" >All</a> </td>
+						<td width ="33%" align="center"> <h1> + Create Task </h1> </td>
+					</tr>
+				</table>
+				</div>
+				
+		</header>
+			
+
+		<form method="POST" action="taskreview.html">
+			<input type="reset" name="reset1" value="reset">  <br/><br/>	
+			Subject: <br>
+			<input type="text" name="subject"/><br/><br/>	
+			
+			Area: <br>
+			<select>
+				<option value ="new york">Sales</option>
+				<option value ="Tel Aviv">Marketing</option>
+				<option value ="Paris">Support</option>
+			</select>
+			<br/><br/>
+			 
+			Content: <br>
+			<textarea type="text" name="Content"rows="8" cols="30"> </textarea>	<br/><br/>
+			
+
+			<br/>
+			<input type="submit" value="Create Task"/>	
+		</form>
+	</div>	
+<body>	
+</html>
+
