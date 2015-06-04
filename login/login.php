@@ -2,7 +2,7 @@
 <?php require_once '/../include/dal.php';?>
 
 	<?php
-    session_start(); 
+ session_start();
     if($_GET["logout"]=='1'){session_destroy();}
 
 	if(isset($_POST["email"]) && isset($_POST["password"])){
@@ -13,7 +13,7 @@
 
 		if($loginValidation){
             //session_start();
-            // Store Session Data
+            // Store Session Data           
             $_SESSION['user_id']= $loginValidation["id"];
             $_SESSION['name']= $loginValidation["name"];
             $_SESSION['user_type']= $loginValidation["userType"];
@@ -33,7 +33,7 @@
 
 
 <?php
-    session_start();
+   
     
     if(isset($_SESSION['user_id'])){
         header("location: ../index.php");
@@ -47,7 +47,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="login-register.css" rel="stylesheet" type="text/css">
+    <link href="../css/login-register.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   

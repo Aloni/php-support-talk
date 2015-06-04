@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS tasks(
 	userId VARCHAR(50) NOT NULL,
 	subject	VARCHAR(160) NOT NULL,
 	content VARCHAR(255) NOT NULL,
-	creationDate DATETIME NOT NULL,
-	status VARCHAR(15) NOT NULL,
+	creationDate DATETIME Default NOW() NOT NULL,
+	status VARCHAR(15)Default "new" NOT NULL,
 	PRIMARY KEY (id)
 );
 

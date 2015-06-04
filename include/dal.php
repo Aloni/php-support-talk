@@ -1,26 +1,5 @@
 <?php
 
-class DbConnectionTEST{
-	
-	/**
-	 * Get DB connection
-	 *
-	 * @return PDO
-	 */
-	public static function connect()
-	{
-		$dbUri  = 'mysql:host=127.0.0.1;dbname=php_support_system';
-		$dbUser = 'root';
-		$dbPass = '';
-		// Connect, and set error mode to Exceptions
-		$dbh = new PDO($dbUri, $dbUser, $dbPass, array(
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-		));
-		
-		return $dbh;
-	}
-
-}
 
 /**
  * Get DB connection
@@ -35,10 +14,11 @@ function getDbConnection()
 		
 	// Connect, and set error mode to Exceptions
 	$dbh = new PDO($dbUri, $dbUser, $dbPass, array(
-		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 	));
 	
 	return $dbh;
+	
 }
 
 
@@ -189,23 +169,20 @@ $stmt = $dbh->query("insert into users (name, email,phone , password , userType)
 }
 
 
-//var_dump(loginValidation("cohen@gmail.com","1234"));
 
-//$hash = '$1$toHVx1uW$KIvW9yGZZSU/1YOidHeqJ/';
 
-/*if (password_verify('rasmuslerdorf', $hash)) {
-    echo 'Password is valid!';
-} else {
-    echo 'Invalid password.';
+function create_task ($userId , $subject ,$content,$taskType ){
+$dbh = getDbConnection(); 
+$stmt = $dbh->query("insert into tasks (taskType, userId, subject , content ) values ('$taskType','$userId','$subject','$content' )");
+	    if(!empty($stmt)){
+        return TRUE;} 
+        else {
+            return FALSE;}
+
+
 }
 
-// Output: Password is valid!
+?>
 
 
 
-
-//var_dump(get_Task_With_Messages(1));
-//var_dump(json_decode(get_Task_With_Messages(1)));
-//print_r (get_Task_With_Messages(1));
-*/
-//var_dump(get_Task_With_Messages(1));
