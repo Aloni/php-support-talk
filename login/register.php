@@ -25,7 +25,7 @@ if (isset($_POST['name'])&& isset($_POST['email'])&& isset($_POST['phone'])&&iss
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="../css/login-register.css" rel="stylesheet" type="text/css">
+        <link href="login-register.css" rel="stylesheet" type="text/css">
     </head>
     <body>
   

@@ -1,23 +1,43 @@
 <?php require_once 'include/dal.php';?>
+<?php if(!isset($_SESSION)){session_start();} ?>
+<?php //require_once('login/session.php');?>
+
 
 		<?php 
-		if(!empty($_GET["taskId"])){$taskId = htmlspecialchars($_GET["taskId"]);}
-			else {$taskId = 1;}
+		
+		///////////////////////////////////////////////////////////////////////////////////*if(!empty($_GET["taskId"])){$taskId = htmlspecialchars($_GET["taskId"]);}
+		//	else {$taskId = 1;}
 
-        //echo get_Task_With_Messages($taskId);
-	?>
+			
+		if(isset($_SESSION['user_id']) and isset($_POST["order"]) and $_POST["order"] == "addMessage" and isset($_POST["taskId"]) and isset($_POST["messageContent"]))
+		{
+				return addMessageDB($_POST["taskId"], $_SESSION['user_id'], $_POST["messageContent"]);
+				//echo "ADD";
+		}	
+		else{
+			//echo "ERR";
+		}
+		
 	
-{
-"messages":[{"userType":"customer",
-"name":"David",
-"date":"13/2/2012",
-"content": "fdsfs fgfsdfdsfdfdsffss          fffffffffffffffff ff f sfds gffdsgsd fgsdgsg fgsfgs"
-},
-{"userType":"worker",
-"name":"David",
-"date":"13/2/2012",
-"content": "fdsfs fgfsdfdsfdsfds gffdsgsd fgsdgsg fgsfgs"
-}
-]
-
-}
+		if((isset($_POST["order"]) and $_POST["order"] == "updateTaskStatus" and isset($_POST["taskId"]) and isset($_POST["status"])))
+		{		//var_dump($_POST["taskId"]);
+		
+				//echo "ADD";
+		}	
+		else{
+			//echo "ERR";
+		}
+	
+	
+	
+			
+		if(isset($_POST["order"]) and $_POST["order"] == "readMessages" and isset($_POST["taskId"])){
+			echo get_Task_With_Messages($_POST["taskId"]);
+		}
+		else{	
+			echo"{}";
+		}
+	
+	
+//var_dump(update_task_status($_POST["taskId"],$_POST["status"]));  
+?>

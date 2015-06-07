@@ -3,11 +3,9 @@ DROP DATABASE IF EXISTS php_support_system;
 
 CREATE DATABASE php_support_system;
 
+GRANT ALL PRIVILEGES ON php_support_system.* TO 'supportUser'@'localhost' IDENTIFIED BY 'kfs2015';
+
 USE php_support_system;
-
-/*'GRANT ALL PRIVILEGES ON php_support_system.* TO 'myuser'@'localhost' IDENTIFIED BY 'kfs2015';*/
-
-
 
 CREATE TABLE IF NOT EXISTS users(
 	id INT UNSIGNED AUTO_INCREMENT NOT NULL,
@@ -15,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users(
 	email VARCHAR(50),
 	phone VARCHAR(15),
 	image_path VARCHAR(60),
-	password VARCHAR(15),
+	password VARCHAR(60),
 	userType VARCHAR(15) NOT NULL,
 	PRIMARY KEY (id),
     UNIQUE (email)
@@ -27,8 +25,8 @@ CREATE TABLE IF NOT EXISTS tasks(
 	userId VARCHAR(50) NOT NULL,
 	subject	VARCHAR(160) NOT NULL,
 	content VARCHAR(255) NOT NULL,
-	creationDate DATETIME Default NOW() NOT NULL,
-	status VARCHAR(15)Default "new" NOT NULL,
+	creationDate DATETIME default NOW() NOT NULL,
+	status VARCHAR(15) default "new" NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -37,7 +35,7 @@ CREATE TABLE IF NOT EXISTS messages(
 	taskId INT NOT NULL,
 	userId VARCHAR(50) NOT NULL,
 	messageContent VARCHAR(255) NOT NULL,
-	creationDate DATETIME NOT NULL,
+	creationDate DATETIME default NOW() NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -45,8 +43,8 @@ CREATE TABLE IF NOT EXISTS messages(
 	
 INSERT INTO users(id, name, email, phone, image_path, password, userType) 
 VALUES
-	(1, 'Daniel Cohen', 'cohen@gmail.com','054-4545454','','1234', 'worker'), 
-	(2, 'Jonathan Levi', 'levi@gmail.com','054-4545454','','1234', 'customer');
+	(1, 'Daniel Cohen', 'cohen@gmail.com','054-4545454','','$2y$10$5LSQimftI.jUM20cyvYav.k6SI.rV8yT55ZLeMY0dHr7qQQ0tO0Ni', 'worker'), 
+	(2, 'Jonathan Levi', 'levi@gmail.com','054-4545454','','$2y$10$5LSQimftI.jUM20cyvYav.k6SI.rV8yT55ZLeMY0dHr7qQQ0tO0Ni', 'customer');
 
 	
 INSERT INTO tasks(taskType, userId, subject, content, creationDate, status) 
@@ -57,16 +55,5 @@ VALUES
 	
 	
 
-INSERT INTO messages (taskId , userId , messageContent, creationDate) VALUES (1, 2, "need help asap!!", now()), (1, 1, "Try restart your machine", now());
+INSERT INTO messages (taskId , userId , messageContent) VALUES (1, 2, "need help asap!!"), (1, 1, "Try restart your machine");
 
-
-
-CREATE TABLE IF NOT EXISTS registration (
-id INT UNSIGNED AUTO_INCREMENT NOT NULL,
-name varchar(255) NOT NULL,
-email VARCHAR(50),
-phone VARCHAR(15),
-password varchar(255) NOT NULL,
-PRIMARY KEY (id)
- 
-);

@@ -2,18 +2,17 @@
 <?php require_once '/../include/dal.php';?>
 
 	<?php
- session_start();
-    if($_GET["logout"]=='1'){session_destroy();}
+    session_start(); 
+    if(isset($_GET["logout"]) && $_GET["logout"]=='1'){session_destroy();}
 
 	if(isset($_POST["email"]) && isset($_POST["password"])){
 		$email = $_POST["email"];
 		$password = $_POST["password"];
 
-        $loginValidation = array("id"=>"5", "name" => "Aric Levi", "user_type"=>"worker");//loginValidation($email, $password);
-
+        $loginValidation = loginValidation($email, $password);
 		if($loginValidation){
             //session_start();
-            // Store Session Data           
+            // Store Session Data
             $_SESSION['user_id']= $loginValidation["id"];
             $_SESSION['name']= $loginValidation["name"];
             $_SESSION['user_type']= $loginValidation["userType"];
@@ -33,11 +32,17 @@
 
 
 <?php
-   
+    //session_start();
     
-    if(isset($_SESSION['user_id'])){
-        header("location: ../index.php");
-        echo isset($_SESSION['user_id']);
+    if(isset($_SESSION['user_type'])){
+		if($_SESSION['user_type']=="worker"){
+				header("location: ../index.php");
+		}
+		else {
+				header("location: ../customer_home.php");
+		}
+
+
     }
 ?>
 
@@ -47,7 +52,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="../css/login-register.css" rel="stylesheet" type="text/css">
+    <link href="login-register.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   

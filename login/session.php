@@ -6,9 +6,10 @@ Includes in other pages the next session script for login validation:
 
 session_start();
 
-if(!isset($_SESSION['user_id'])){
+if(!isset($_SESSION['user_type'])){
     header("location: login/login.php");
 }
+
 
 
 ?>

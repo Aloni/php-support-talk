@@ -8,7 +8,7 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #f5f5f5;
 }
 
 @media(min-width:768px) {
@@ -30,11 +30,12 @@ body {
 .huge {
     font-size: 50px;
     line-height: normal;
+	
 }
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 225px;
+        padding-left: 0px;
     }
 
     #page-wrapper {
@@ -46,6 +47,8 @@ body {
 
 .top-nav {
     padding: 0 15px;
+	
+	
 }
 
 .top-nav>li {
@@ -57,7 +60,7 @@ body {
     padding-top: 15px;
     padding-bottom: 15px;
     line-height: 20px;
-    color: #999;
+    color: #FA0121;
 }
 
 .top-nav>li>a:hover,
@@ -129,7 +132,7 @@ ul.alert-dropdown {
     }
 
     .side-nav>li>a {
-        width: 225px;
+        width: 155px;
     }
 
     .side-nav li a:hover,
