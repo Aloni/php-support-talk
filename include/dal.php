@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 /**
  * Get DB connection
@@ -7,7 +7,7 @@
  */
 function getDbConnection()
 {
-	$dbUri  = 'mysql:host=127.0.0.1;dbname=php_support_system';
+	$dbUri  = 'mysql:host=localhost:3306;dbname=php_support_system';
 	$dbUser = 'supportUser';
 	$dbPass = 'kfs2015';
 		
@@ -15,6 +15,13 @@ function getDbConnection()
 	$dbh = new PDO($dbUri, $dbUser, $dbPass, array(
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 	));
+    /*
+    try {
+        $dbh = new PDO($dsn, $user, $password);
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+    }
+    */
 	
 	return $dbh;
 }
@@ -205,7 +212,16 @@ $stmt = $dbh->query("insert into tasks (taskType, userId, subject , content ) va
 
 function update_task_status($taskId, $status)
 {	
-
+    $dbh = getDbConnection();
+	$sql = 	"UPDATE tasks SET status=? WHERE Id= ?";
+    $stmt = $dbh->prepare($sql);
+	
+	if ($stmt->execute(array($status, $taskId))){
+		return true;
+	}
+	else{
+		return false;
+	}	
 }
 
 

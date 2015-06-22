@@ -50,7 +50,7 @@
 								
                             </div>
                             <div class="panel-body">
-                                <div class="list-group" size="5">
+                                <div class="list-group">         
 									<?php $customersList = get_all_customers();  
 									foreach ($customersList as $customer){ ?>
 										<a href="?clientid=<?=$customer["id"];?>" class="list-group-item">
